@@ -1,0 +1,26 @@
+name: CI
+
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  packing:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - uses: nuget/setup-nuget@v2
+      - run: nuget restore AnnounceBuilder.sln
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.x
+      - uses: microsoft/setup-msbuild@v2
+      - run: msbuild AnnounceBuilder.sln -t:restore,rebuild -p:Configuration=Release -p:RestorePackagesConfig=true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: AnnounceBuilder
+          path: ./AnnounceBuilder/bin/Release/net6.0/AnnounceBuilder.dll
+
