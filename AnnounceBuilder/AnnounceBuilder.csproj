@@ -4,8 +4,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <AnalysisLevel>preview</AnalysisLevel>
-    <Version>2025.6.20</Version>
-    <Description>Extreme Roles for Advanced user</Description>
+    <Version>1.0.0</Version>
+    <Description>Make Announce more Ez</Description>
     <Authors>yukieiji</Authors>
     <Configurations>Debug;Release</Configurations>
     <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
